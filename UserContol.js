@@ -28,6 +28,32 @@ update: (req,res)=>{
 
             res.json(user);
         })
+        .catch(err =>{
+            res.json({ success: false, result: err});
+        });
+},
+retrive: (req,res)=>{
+    UserModel.find()
+    .then(result=>{
+        if(!result) res.json({success:false, result:"No result found"});
+
+        res.json({success:true, result:result});
+
+    })
+    .catch(err =>{
+        res.json({ success: false, result: err});
+    });
+},
+delete:(req,res)=>{
+    UserModel.remove({_id:req.body._id})
+    .then(result=>{
+        if(!result) res.json({success:false, result:"No result found"});
+
+        res.json({success:true, result:result});
+    })
+    .catch(err =>{
+        res.json({ success: false, result: err});
+    }); 
 }
 
 }
