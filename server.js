@@ -15,7 +15,8 @@ const UserControl = require('./controllers/UserContol');
 
 app.post('/api/user/create',UserControl.create );
 app.post('/api/user/update',UserControl.update );
-
+app.post('/api/user/retrive',UserControl.retrive );
+app.delete('/api/user/delete',UserControl.delete );
 
 
 
